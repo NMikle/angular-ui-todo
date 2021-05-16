@@ -1,0 +1,9 @@
+<form class="add-todo-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Todo</mat-label>
+    <input matInput [formControl]="todoFC" placeholder="Enter todo" />
+    <mat-error *ngIf="todoFC.hasError('required')">
+      Email is required
+    </mat-error>
+  </mat-form-field>
+</form>

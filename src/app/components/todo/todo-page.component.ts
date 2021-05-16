@@ -4,8 +4,8 @@ import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
   selector: 'app-todo',
-  templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.scss'],
+  templateUrl: './todo-page.component.html',
+  styleUrls: ['./todo-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoComponent implements OnInit {
