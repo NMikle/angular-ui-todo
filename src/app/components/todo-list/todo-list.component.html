@@ -3,7 +3,8 @@
     <mat-label>Todo</mat-label>
     <input matInput [formControl]="todoFC" placeholder="Enter todo" />
     <mat-error *ngIf="todoFC.hasError('required')">
-      Email is required
+      Field is required
     </mat-error>
   </mat-form-field>
 </form>
+<button mat-raised-button color="primary">Add todo</button>
