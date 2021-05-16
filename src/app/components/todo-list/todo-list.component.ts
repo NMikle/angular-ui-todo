@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import {Observable} from "rxjs";
-import {TodoService} from "../../services/todo.service";
+import { Observable } from 'rxjs';
+import { Todo } from 'src/app/models/todo.model';
 
 @Component({
   selector: 'app-todo-list',
@@ -12,19 +12,22 @@ export class TodoListComponent implements OnInit {
   public todoFC: FormControl;
 
   @Input()
-  public todos: string[];
+  public todos: Todo[];
 
-  constructor(private service: TodoService) {}
+  @Output()
+  public addTodo: EventEmitter<Todo> = new EventEmitter();
+
+  constructor() {}
 
   public ngOnInit(): void {
     this.todoFC = new FormControl('', [Validators.required]);
   }
 
-  public addTodo(): Observable<any> {
-    this.service.saveTodo({
+  public addTodoHandler(): void {
+    this.addTodo.emit({
       id: 3,
-      content: 'lol'
-    }).subscribe(a => console.log(a))
-    return null;
+      content: this.todoFC.value,
+    });
+    this.todoFC.patchValue('');
   }
 }

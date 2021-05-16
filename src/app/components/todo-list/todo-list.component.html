@@ -7,4 +7,7 @@
     </mat-error>
   </mat-form-field>
 </form>
-<button mat-raised-button color="primary" (click)="addTodo()">Add todo</button>
+<button mat-raised-button color="primary" (click)="addTodoHandler()">
+  Add todo
+</button>
+<div *ngFor="let todo of todos">{{ todo }}</div>
