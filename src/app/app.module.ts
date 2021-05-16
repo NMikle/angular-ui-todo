@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,6 +19,7 @@ import { TodoComponent } from './components/todo/todo-page.component';
     BrowserAnimationsModule,
     HttpClientModule,
     MatInputModule,
+    FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
   ],
