@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import {Observable} from "rxjs";
+import {TodoService} from "../../services/todo.service";
 
 @Component({
   selector: 'app-todo-list',
@@ -12,9 +14,17 @@ export class TodoListComponent implements OnInit {
   @Input()
   public todos: string[];
 
-  constructor() {}
+  constructor(private service: TodoService) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.todoFC = new FormControl('', [Validators.required]);
+  }
+
+  public addTodo(): Observable<any> {
+    this.service.saveTodo({
+      id: 3,
+      content: 'lol'
+    }).subscribe(a => console.log(a))
+    return null;
   }
 }
